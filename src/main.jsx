@@ -41,7 +41,12 @@ function App() {
       }
 
       setForm(initialForm);
-      setStatus({ type: "success", message: "Thanks. Your message has been sent." });
+      setStatus({
+        type: "success",
+        message: result.emailSent
+          ? "Thanks. Your message has been sent."
+          : "Thanks. Your message has been received.",
+      });
     } catch (error) {
       setStatus({ type: "error", message: error.message });
     }

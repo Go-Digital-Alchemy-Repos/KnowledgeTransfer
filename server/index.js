@@ -118,19 +118,17 @@ app.post("/api/contact", async (request, response) => {
     return;
   }
 
-  const transport = createTransport();
-
-  if (!transport) {
-    response.status(503).json({
-      error: "Email delivery is not configured yet. Add SMTP settings to the server environment.",
-    });
-    return;
-  }
-
   const { name, company, phone, email, message } = validation.data;
 
   try {
     await saveContactSubmission(validation.data);
+
+    const transport = createTransport();
+
+    if (!transport) {
+      response.status(202).json({ ok: true, emailSent: false });
+      return;
+    }
 
     await transport.sendMail({
       to: contactRecipient,
@@ -147,7 +145,7 @@ app.post("/api/contact", async (request, response) => {
       ].join("\n"),
     });
 
-    response.json({ ok: true });
+    response.json({ ok: true, emailSent: true });
   } catch (error) {
     console.error("Contact email failed:", error);
     response.status(500).json({ error: "Unable to send message right now." });
