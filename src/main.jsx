@@ -221,13 +221,30 @@ function ProcessPage({ navigate }) {
   return (
     <>
       <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
-      <section className="content-section">
-        <div className="timeline">
+      <section className="content-section process-section">
+        <div className="pipeline-intro" aria-hidden="true">
+          <span>Knowledge risk</span>
+          <strong>Continuity pipeline</strong>
+          <span>Operational continuity</span>
+        </div>
+        <div className="process-pipeline">
           {content.steps.map((step, index) => (
-            <article className="timeline-item" key={step.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h2>{step.title}</h2>
-              <p>{step.body}</p>
+            <article className="pipeline-step" key={step.title}>
+              <div className="pipeline-node" aria-hidden="true">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <div className="pipeline-card">
+                <div className="pipeline-card-header">
+                  <span>{step.meta}</span>
+                  <strong>{step.label}</strong>
+                </div>
+                <h2>{step.title}</h2>
+                <p>{step.body}</p>
+                <div className="deliverable">
+                  <span>Deliverable</span>
+                  <strong>{step.deliverable}</strong>
+                </div>
+              </div>
             </article>
           ))}
         </div>

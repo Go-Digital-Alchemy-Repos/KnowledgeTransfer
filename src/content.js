@@ -90,31 +90,49 @@ export const siteContent = {
     steps: [
       {
         title: "Discovery",
+        label: "Discover",
+        meta: "Risk",
+        deliverable: "Continuity risk map",
         body:
           "We learn how your business operates, where knowledge is concentrated, and which roles or teams create the most continuity risk.",
       },
       {
         title: "Knowledge Audit",
+        label: "Audit",
+        meta: "Inventory",
+        deliverable: "Role and workflow inventory",
         body:
           "We identify critical information, workflows, systems, responsibilities, and decision context that must be preserved or transferred.",
       },
       {
         title: "Transfer Strategy",
+        label: "Strategize",
+        meta: "Plan",
+        deliverable: "Prioritized handoff plan",
         body:
           "We create a clear plan for how knowledge should move from one person or team to another, including timing, owners, documentation needs, and handoff priorities.",
       },
       {
         title: "Documentation and Workflow Design",
+        label: "Design",
+        meta: "Output",
+        deliverable: "Guides, checklists, process maps",
         body:
           "We help organize knowledge into usable formats such as checklists, process maps, role guides, transition plans, and onboarding materials.",
       },
       {
         title: "Implementation Support",
+        label: "Implement",
+        meta: "Routine",
+        deliverable: "Working transfer routines",
         body:
           "We work with your team to put the strategy into practice so the transfer process becomes part of daily operations, not just a document on a shelf.",
       },
       {
         title: "Continuity Review",
+        label: "Review",
+        meta: "Improve",
+        deliverable: "Continuity improvement roadmap",
         body:
           "We review what was captured, what still needs improvement, and how the business can maintain knowledge-transfer practices over time.",
       },
