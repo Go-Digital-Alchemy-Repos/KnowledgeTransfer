@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
-import logoUrl from "../assets/knowledge-transfer-logo.svg";
+import logoUrl from "../assets/logo.png";
 import heroAboutUrl from "../assets/hero-about.png";
 import heroContactUrl from "../assets/hero-contact.png";
 import heroHomeUrl from "../assets/hero-home.png";
@@ -99,8 +99,7 @@ function SiteHeader({ route, navigate }) {
   return (
     <header className="site-header">
       <PageLink className="brand" href="/" navigate={navigate} ariaLabel="Knowledge Transfer Inc. home">
-        <img className="brand-logo" src={logoUrl} alt="" />
-        <span>Knowledge Transfer Inc.</span>
+        <img className="brand-logo" src={logoUrl} alt="Knowledge Transfer Inc." />
       </PageLink>
 
       <nav className="site-nav" aria-label="Primary navigation">
