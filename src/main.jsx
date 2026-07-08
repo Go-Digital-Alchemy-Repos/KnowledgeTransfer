@@ -55,21 +55,54 @@ function App() {
   return (
     <main className="page-shell" aria-labelledby="page-title">
       <section className="hero" style={{ "--hero-image": `url(${heroUrl})` }}>
-        <div className="brand">
-          <img className="brand-logo" src={logoUrl} alt="Knowledge Transfer Inc. logo" />
-          <span>Knowledge Transfer Inc.</span>
-        </div>
+        <div className="hero-surface" aria-hidden="true" />
 
-        <div className="hero-content">
-          <p className="eyebrow">Coming soon</p>
-          <h1 id="page-title">Welcome to Knowledge Transfer Inc.</h1>
-          <p className="intro">
-            We are building a smarter way to capture expertise, share insight, and move knowledge forward.
-          </p>
+        <header className="site-header">
+          <a className="brand" href="/" aria-label="Knowledge Transfer Inc. home">
+            <img className="brand-logo" src={logoUrl} alt="" />
+            <span>Knowledge Transfer Inc.</span>
+          </a>
+
+          <a className="header-link" href="#contact">
+            Contact
+          </a>
+        </header>
+
+        <div className="hero-layout">
+          <div className="hero-content">
+            <p className="eyebrow">Coming soon</p>
+            <h1 id="page-title">Welcome to Knowledge Transfer Inc.</h1>
+            <p className="intro">
+              We are building a smarter way to capture expertise, share insight, and move knowledge forward.
+            </p>
+
+            <div className="hero-actions" aria-label="Primary actions">
+              <a className="primary-link" href="#contact">
+                Start a conversation
+              </a>
+              <span className="availability">Now accepting early inquiries</span>
+            </div>
+          </div>
+
+          <div className="signal-panel" aria-label="Knowledge Transfer focus areas">
+            <div>
+              <span>01</span>
+              <p>Expertise capture</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>Workflow memory</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>Team enablement</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
+        <div className="contact-backdrop" aria-hidden="true" />
         <div className="contact-inner">
           <div className="contact-copy">
             <p className="eyebrow">Get in touch</p>
