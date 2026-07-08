@@ -50,7 +50,7 @@ function App() {
   const { route, navigate } = useRoute();
   const pageTitle = useMemo(() => {
     const titles = {
-      "/": "Knowledge Transfer Inc. | Coming Soon",
+      "/": "Knowledge Transfer Inc. | Business Continuity Consulting",
       "/services": "Services | Knowledge Transfer Inc.",
       "/process": "Process | Knowledge Transfer Inc.",
       "/about": "About | Knowledge Transfer Inc.",
@@ -101,6 +101,10 @@ function SiteHeader({ route, navigate }) {
           </PageLink>
         ))}
       </nav>
+
+      <PageLink className="nav-cta" href="/contact" navigate={navigate}>
+        Start
+      </PageLink>
     </header>
   );
 }
@@ -112,7 +116,7 @@ function SiteFooter({ navigate }) {
         <PageLink className="footer-brand" href="/" navigate={navigate}>
           Knowledge Transfer Inc.
         </PageLink>
-        <p>Knowledge-transfer strategies for business continuity, employee turnover, and growth.</p>
+        <p>Practical knowledge-transfer strategies for succession, turnover, and growth.</p>
       </div>
       <div className="footer-links">
         <PageLink href="/services" navigate={navigate}>Services</PageLink>
@@ -146,11 +150,10 @@ function HomePage({ navigate }) {
 
   return (
     <>
-      <section className="hero" style={{ "--hero-image": `url(${heroUrl})` }}>
-        <div className="hero-surface" aria-hidden="true" />
-
-        <div className="hero-layout">
-          <div className="hero-content">
+      <section className="hero">
+        <div className="hero-texture" aria-hidden="true" />
+        <div className="hero-inner">
+          <div className="hero-copy">
             <p className="eyebrow">{content.eyebrow}</p>
             <h1 id="page-title">{content.title}</h1>
             <p className="intro">{content.intro}</p>
@@ -159,24 +162,17 @@ function HomePage({ navigate }) {
               <PageLink className="primary-link" href={content.primaryCta.href} navigate={navigate}>
                 {content.primaryCta.label}
               </PageLink>
-              <PageLink className="ghost-link" href={content.secondaryCta.href} navigate={navigate}>
+              <PageLink className="secondary-link" href={content.secondaryCta.href} navigate={navigate}>
                 {content.secondaryCta.label}
               </PageLink>
             </div>
           </div>
 
-          <div className="signal-panel" aria-label="Knowledge Transfer focus areas">
-            {content.signals.map((signal, index) => (
-              <div key={signal}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{signal}</p>
-              </div>
-            ))}
-          </div>
+          <TransferMap signals={content.signals} />
         </div>
       </section>
 
-      <section className="split-section section-dark">
+      <section className="problem-strip">
         <SectionIntro eyebrow={content.problem.eyebrow} title={content.problem.title} body={content.problem.body} />
         <SectionIntro eyebrow={content.solution.eyebrow} title={content.solution.title} body={content.solution.body} />
       </section>
@@ -201,7 +197,7 @@ function ServicesPage({ navigate }) {
   return (
     <>
       <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
-      <section className="content-section">
+      <section className="content-section service-section">
         <div className="service-list">
           {content.items.map((service, index) => (
             <article className="wide-card" key={service.title}>
@@ -247,8 +243,10 @@ function AboutPage({ navigate }) {
   return (
     <>
       <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
-      <section className="content-section section-readable">
-        <p>{content.body}</p>
+      <section className="content-section narrative-section">
+        <div className="narrative-card">
+          <p>{content.body}</p>
+        </div>
       </section>
       <section className="content-section section-tight">
         <SectionHeading eyebrow="Values" title="Practical knowledge-transfer work for real businesses." />
@@ -292,14 +290,50 @@ function PrivacyPage() {
 
 function PageHero({ eyebrow, title, intro }) {
   return (
-    <section className="page-hero" style={{ "--hero-image": `url(${heroUrl})` }}>
-      <div className="hero-surface" aria-hidden="true" />
+    <section className="page-hero">
+      <div className="page-hero-art" style={{ "--hero-image": `url(${heroUrl})` }} aria-hidden="true" />
       <div className="page-hero-inner">
         <p className="eyebrow">{eyebrow}</p>
         <h1 id="page-title">{title}</h1>
         <p className="intro">{intro}</p>
       </div>
     </section>
+  );
+}
+
+function TransferMap({ signals }) {
+  return (
+    <aside className="transfer-map" aria-label="Knowledge transfer operating map">
+      <div className="map-grid" aria-hidden="true" />
+      <div className="map-header">
+        <span>Continuity map</span>
+        <strong>Risk to readiness</strong>
+      </div>
+      <div className="map-flow">
+        <div className="map-node node-source">
+          <span>Outbound role</span>
+          <strong>Expertise</strong>
+        </div>
+        <div className="map-line" />
+        <div className="map-node node-center">
+          <span>Transfer strategy</span>
+          <strong>Process + Data + Context</strong>
+        </div>
+        <div className="map-line" />
+        <div className="map-node node-target">
+          <span>Incoming team</span>
+          <strong>Continuity</strong>
+        </div>
+      </div>
+      <div className="map-signals">
+        {signals.map((signal, index) => (
+          <div key={signal}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{signal}</p>
+          </div>
+        ))}
+      </div>
+    </aside>
   );
 }
 
@@ -386,7 +420,6 @@ function ContactSection() {
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
-      <div className="contact-backdrop" aria-hidden="true" />
       <div className="contact-inner">
         <div className="contact-copy">
           <p className="eyebrow">Get in touch</p>
