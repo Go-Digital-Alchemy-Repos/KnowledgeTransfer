@@ -1,6 +1,17 @@
 # Knowledge Transfer Inc.
 
-Full-stack React, Node, and Express coming-soon site for Knowledge Transfer Inc.
+Full-stack React, Node, and Express marketing site for Knowledge Transfer Inc.
+
+## Launch Pages
+
+- `/`
+- `/services`
+- `/process`
+- `/about`
+- `/contact`
+- `/privacy`
+
+Marketing copy is stored in `src/content.js` so page content can be revised without working through layout markup.
 
 ## Local Development
 
