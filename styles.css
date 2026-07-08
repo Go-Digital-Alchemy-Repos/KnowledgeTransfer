@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 0 auto;
   padding: clamp(28px, 6vw, 72px);
   position: relative;
@@ -75,7 +75,7 @@ body {
 
 .hero-content {
   max-width: 720px;
-  padding: 96px 0 48px;
+  padding: clamp(42px, 7vw, 76px) 0 48px;
 }
 
 .eyebrow {
@@ -123,6 +123,6 @@ h1 {
   }
 
   .hero-content {
-    padding: 72px 0 28px;
+    padding: 44px 0 28px;
   }
 }
