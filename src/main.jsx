@@ -2,10 +2,24 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import logoUrl from "../assets/knowledge-transfer-logo.svg";
-import heroUrl from "../assets/knowledge-hero.png";
+import heroAboutUrl from "../assets/hero-about.png";
+import heroContactUrl from "../assets/hero-contact.png";
+import heroHomeUrl from "../assets/hero-home.png";
+import heroPrivacyUrl from "../assets/hero-privacy.png";
+import heroProcessUrl from "../assets/hero-process.png";
+import heroServicesUrl from "../assets/hero-services.png";
 import { navItems, siteContent } from "./content";
 
 const routes = ["/", "/services", "/process", "/about", "/contact", "/privacy"];
+
+const heroImages = {
+  home: heroHomeUrl,
+  services: heroServicesUrl,
+  process: heroProcessUrl,
+  about: heroAboutUrl,
+  contact: heroContactUrl,
+  privacy: heroPrivacyUrl,
+};
 
 const initialForm = {
   name: "",
@@ -150,7 +164,7 @@ function HomePage({ navigate }) {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero" style={{ "--hero-image": `url(${heroImages.home})` }}>
         <div className="hero-texture" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-copy">
@@ -196,7 +210,7 @@ function ServicesPage({ navigate }) {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} image={heroImages.services} />
       <section className="content-section service-section">
         <div className="service-list">
           {content.items.map((service, index) => (
@@ -220,7 +234,7 @@ function ProcessPage({ navigate }) {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} image={heroImages.process} />
       <section className="content-section process-section">
         <div className="pipeline-intro" aria-hidden="true">
           <span>Knowledge risk</span>
@@ -259,7 +273,7 @@ function AboutPage({ navigate }) {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} image={heroImages.about} />
       <section className="content-section narrative-section">
         <div className="narrative-card">
           <p>{content.body}</p>
@@ -281,7 +295,12 @@ function AboutPage({ navigate }) {
 function ContactPage() {
   return (
     <>
-      <PageHero eyebrow={siteContent.contact.eyebrow} title={siteContent.contact.title} intro={siteContent.contact.intro} />
+      <PageHero
+        eyebrow={siteContent.contact.eyebrow}
+        title={siteContent.contact.title}
+        intro={siteContent.contact.intro}
+        image={heroImages.contact}
+      />
       <ContactSection />
     </>
   );
@@ -292,7 +311,7 @@ function PrivacyPage() {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} image={heroImages.privacy} />
       <section className="content-section privacy-list">
         {content.sections.map((section) => (
           <article className="policy-block" key={section.title}>
@@ -305,10 +324,10 @@ function PrivacyPage() {
   );
 }
 
-function PageHero({ eyebrow, title, intro }) {
+function PageHero({ eyebrow, title, intro, image }) {
   return (
     <section className="page-hero">
-      <div className="page-hero-art" style={{ "--hero-image": `url(${heroUrl})` }} aria-hidden="true" />
+      <div className="page-hero-art" style={{ "--hero-image": `url(${image})` }} aria-hidden="true" />
       <div className="page-hero-inner">
         <p className="eyebrow">{eyebrow}</p>
         <h1 id="page-title">{title}</h1>
