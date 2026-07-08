@@ -25,7 +25,7 @@ body {
 
 .page-shell {
   min-height: 100vh;
-  display: flex;
+  display: block;
 }
 
 .hero {
@@ -109,6 +109,105 @@ h1 {
   line-height: 1.6;
 }
 
+.contact {
+  padding: clamp(56px, 8vw, 104px) clamp(24px, 6vw, 72px);
+  color: var(--navy);
+  background: linear-gradient(180deg, #f6fbff 0%, #e8f5ff 100%);
+}
+
+.contact-inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
+  gap: clamp(36px, 6vw, 76px);
+  align-items: start;
+}
+
+.contact-copy .eyebrow {
+  color: var(--blue);
+}
+
+.contact-copy h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.contact-copy p:last-child {
+  margin: 24px 0 0;
+  color: #315a8e;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row-full {
+  grid-column: 1 / -1;
+}
+
+label {
+  color: #173b70;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(15, 110, 219, 0.24);
+  border-radius: 8px;
+  padding: 14px 15px;
+  color: var(--navy);
+  background: var(--white);
+  font: inherit;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(15, 110, 219, 0.14);
+}
+
+button {
+  width: fit-content;
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 22px;
+  color: var(--white);
+  background: var(--blue);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+button:hover {
+  background: var(--navy);
+  transform: translateY(-1px);
+}
+
 @media (max-width: 640px) {
   .page-shell {
     min-height: 100vh;
@@ -130,5 +229,10 @@ h1 {
 
   .hero-content {
     padding: 44px 0 28px;
+  }
+
+  .contact-inner,
+  .contact-form {
+    grid-template-columns: 1fr;
   }
 }
