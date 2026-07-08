@@ -4,7 +4,7 @@
   --sky: #61b6ff;
   --ice: #eef7ff;
   --white: #ffffff;
-  --text: #14315f;
+  --text: #f3f9ff;
 }
 
 * {
@@ -20,9 +20,7 @@ body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   color: var(--text);
-  background:
-    linear-gradient(118deg, rgba(255, 255, 255, 0.88) 0 48%, rgba(189, 227, 255, 0.78) 48% 68%, rgba(15, 110, 219, 0.16) 68% 100%),
-    linear-gradient(135deg, #f7fbff 0%, #e7f4ff 45%, #bde3ff 100%);
+  background: var(--navy);
 }
 
 .page-shell {
@@ -31,24 +29,32 @@ body {
 }
 
 .hero {
-  width: min(100%, 1180px);
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0 auto;
   padding: clamp(28px, 6vw, 72px);
+  overflow: hidden;
   position: relative;
 }
 
+.hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  right: clamp(24px, 7vw, 84px);
-  bottom: clamp(24px, 7vw, 84px);
-  width: min(34vw, 340px);
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(15, 110, 219, 0.45));
+  inset: 0;
+}
+
+.hero::before {
+  background: url("assets/knowledge-hero.png") center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(8, 38, 92, 0.94) 0%, rgba(8, 38, 92, 0.76) 42%, rgba(8, 38, 92, 0.26) 78%, rgba(8, 38, 92, 0.18) 100%),
+    linear-gradient(180deg, rgba(8, 38, 92, 0.4) 0%, rgba(8, 38, 92, 0.08) 42%, rgba(8, 38, 92, 0.72) 100%);
 }
 
 .brand,
@@ -62,7 +68,7 @@ body {
   align-items: center;
   gap: 14px;
   width: fit-content;
-  color: var(--navy);
+  color: var(--white);
   font-size: clamp(1rem, 2vw, 1.15rem);
   font-weight: 700;
 }
@@ -80,7 +86,7 @@ body {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--blue);
+  color: var(--sky);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -89,7 +95,7 @@ body {
 
 h1 {
   margin: 0;
-  color: var(--navy);
+  color: var(--white);
   font-size: clamp(2.8rem, 9vw, 6.25rem);
   line-height: 0.96;
   letter-spacing: 0;
@@ -98,7 +104,7 @@ h1 {
 .intro {
   max-width: 620px;
   margin: 28px 0 0;
-  color: #244a82;
+  color: #d9edff;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.6;
 }
