@@ -262,7 +262,7 @@ function ProcessPage({ navigate }) {
           ))}
         </div>
       </section>
-      <CtaBand title={content.cta} label="Plan a transfer strategy" href="/contact" navigate={navigate} />
+      <CtaBand title={content.cta} label="Plan a Transfer Strategy" href="/contact" navigate={navigate} />
     </>
   );
 }

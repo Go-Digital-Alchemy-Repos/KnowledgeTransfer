@@ -557,7 +557,7 @@ button:hover:not(:disabled) {
 
 .pipeline-intro {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 1fr);
   align-items: center;
   gap: 18px;
   margin: 0 0 34px;
@@ -566,6 +566,11 @@ button:hover:not(:disabled) {
   font-weight: 850;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.pipeline-intro span,
+.pipeline-intro strong {
+  white-space: nowrap;
 }
 
 .pipeline-intro::before,
@@ -778,6 +783,13 @@ button:hover:not(:disabled) {
 .cta-band p {
   max-width: 620px;
   color: #d9e9f8;
+}
+
+.cta-band .primary-link {
+  flex: 0 0 auto;
+  min-width: 250px;
+  padding-inline: 30px;
+  white-space: nowrap;
 }
 
 .contact {
